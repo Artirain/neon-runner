@@ -10,7 +10,8 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Share+Tech+Mono&family=Major+Mono+Display&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Share+Tech+Mono&family=Major+Mono+Display&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,12 +23,13 @@
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
     <li><a href="#lore">Lore</a></li>
-    <li><a href="#beta" class="nav-cta">Join Beta</a></li>
+    <li><a class="nav-cta" href="#beta">Join Beta</a></li>
   </ul>
 </nav>
 
 <header class="hero" id="top">
-  <div class="hero-bg"></div>
+  <img class="hero-img" src="img/hero.webp" alt="" fetchpriority="high">
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-content">
     <p class="eyebrow">// CYBERPUNK RPG // NEO-BANGKOK 2099 //</p>
@@ -53,7 +55,7 @@
       <h2>PERSISTENT NPCs</h2>
       <p>Every face you meet runs on its own AI. They remember debts, favors, betrayals — for years of game-time. Walk past a kid you saved in chapter one and find them running a syndicate by chapter twelve.</p>
     </div>
-    <div class="feature-visual" data-bg="img/feature-npc.png"></div>
+    <img class="feature-visual" src="img/feature-npc.webp" alt="" loading="lazy" width="1400" height="875">
   </div>
   <div class="feature reverse">
     <div class="feature-num">[02]</div>
@@ -61,7 +63,7 @@
       <h2>TWO FUTURES</h2>
       <p>Saints want order through code. Static want chaos through noise. You pick a side. The city splits — districts shift allegiances, NPCs choose, the architecture itself rewrites. There is no neutral playthrough.</p>
     </div>
-    <div class="feature-visual" data-bg="img/feature-factions.png"></div>
+    <img class="feature-visual" src="img/feature-factions.webp" alt="" loading="lazy" width="1400" height="875">
   </div>
 </section>
 
@@ -72,19 +74,19 @@
   </div>
   <div class="lore-grid">
     <article class="lore-card">
-      <div class="lore-img" data-bg="img/lore-1.png"></div>
+      <img class="lore-img" src="img/lore-1.webp" alt="" loading="lazy" width="1000" height="667">
       <span class="lore-tag">// LORE</span>
       <h3>The Last Honest Wok</h3>
       <p>One street vendor in Sukhumvit refuses to install a payment chip. She says cash remembers nothing — which is exactly the point.</p>
     </article>
     <article class="lore-card">
-      <div class="lore-img" data-bg="img/lore-2.png"></div>
+      <img class="lore-img" src="img/lore-2.webp" alt="" loading="lazy" width="1000" height="667">
       <span class="lore-tag">// DEVLOG</span>
       <h3>Building the Memory Layer</h3>
       <p>How we built a neural memory layer that lets every NPC carry 200+ hours of context without melting your GPU.</p>
     </article>
     <article class="lore-card">
-      <div class="lore-img" data-bg="img/lore-3.png"></div>
+      <img class="lore-img" src="img/lore-3.webp" alt="" loading="lazy" width="1000" height="667">
       <span class="lore-tag">// FACTION</span>
       <h3>Who Runs The Towers</h3>
       <p>The four corps that own the skyline. Why they hate each other. And why one of them is secretly funding the Static.</p>
@@ -98,10 +100,11 @@
     <h2>JOIN THE NETWORK</h2>
     <p class="beta-text">Drop your handle. Get pulled into a district. No spam, no newsletter — just one ping when the gates open.</p>
     <form class="beta-form" id="betaForm">
-      <input type="email" placeholder="your.handle@neo-bangkok.net" required>
+      <label for="betaEmail" class="visually-hidden">Email</label>
+      <input id="betaEmail" type="email" placeholder="your.handle@neo-bangkok.net" required autocomplete="email">
       <button type="submit">REQUEST ACCESS</button>
     </form>
-    <p class="beta-status" id="betaStatus"></p>
+    <p class="beta-status" id="betaStatus" role="status" aria-live="polite"></p>
   </div>
 </section>
 
@@ -112,9 +115,9 @@
     <span>v0.1.0-alpha</span>
   </div>
   <div class="footer-links">
-    <a href="#">discord</a>
-    <a href="#">x.com</a>
-    <a href="https://github.com/Artirain/neon-runner">github</a>
+    <a href="#" aria-label="Discord">discord</a>
+    <a href="#" aria-label="X / Twitter">x.com</a>
+    <a href="https://github.com/Artirain/neon-runner" aria-label="GitHub repository">github</a>
   </div>
 </footer>
 

@@ -14,11 +14,10 @@ python -m http.server 8000
 ```
 then visit http://localhost:8000
 
-## Replace placeholders with real images
-Drop files into `img/`:
-- `hero.png` — hero background (recommended 1920×1080+, will be darkened by overlay)
-- `feature-npc.png` — feature 1 visual
-- `feature-factions.png` — feature 2 visual
-- `lore-1.png`, `lore-2.png`, `lore-3.png` — lore card thumbnails
+## Replacing images
+All images live in `img/` as WebP. To swap:
+- `hero.webp` — hero background (1920px wide source recommended, darkened by overlay)
+- `feature-npc.webp`, `feature-factions.webp` — feature visuals (1400px)
+- `lore-1.webp`, `lore-2.webp`, `lore-3.webp` — lore card thumbnails (1000px)
 
-JS auto-swaps CSS placeholders for these files when they load.
+If the file is missing the CSS gradient placeholder shows through.
